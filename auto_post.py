@@ -1,7 +1,7 @@
 import requests
 import json
 import time
-
+import hashlib
 #
 token_url = 'https://wxapp-daidai.uboxs.com/timeline/search'
 token_headers = {
@@ -13,11 +13,13 @@ token_data = {
 }
 
 def generate_token(secret_key):
-    timestamp = str(int(time.time()))  # 获取当前时间戳
+    timestamp = str(1709034563)  # 获取当前时间戳
     message = secret_key + timestamp  # 将密钥和时间戳拼接
-    hash_object = hashlib.sha256(message.encode())  # 使用SHA-256哈希函数计算摘要
+    hash_object = hashlib.sha1(message.encode())  # 使用SHA-256哈希函数计算摘要
     token = hash_object.hexdigest()  # 获取摘要的十六进制表示
     return token
+
+
 def get_train_token():
 
     post_result = requests.post(token_url, data=json.dumps(token_data), headers=token_headers, verify=False)
@@ -42,4 +44,4 @@ def work():
     print(req.text)
 
 if __name__ == "__main__":
-    get_train_token()
+    print(generate_token(str(1709036136848)))
