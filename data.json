@@ -7,7 +7,7 @@
 	"require_superior_group_timeline": true,
 	"superior_group_timeline_insert_timestamp": 0,
 	"limit": 20,
-	"page": 10,
+	"page": 9,
 	"seed": 1709036136848,
 	"duo_token": "def0adf70cb9188b309ca6a3f57eade5"
 }
